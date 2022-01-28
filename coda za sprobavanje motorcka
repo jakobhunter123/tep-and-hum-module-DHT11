@@ -1,0 +1,20 @@
+float T1 = A0;
+float T2 = A1;
+
+int V1; 
+int V2;
+
+
+void setup() {
+Serial.begin(9600);
+
+}
+
+void loop() {
+
+  V1 = analogRead(T1);
+  V2 = analogRead(T2);
+  Serial.println(V2);
+
+  delay(100);
+
