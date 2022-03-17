@@ -1,0 +1,180 @@
+#include "DHT.h"
+#define DHT11Pin 2
+#define DHTType DHT11
+//OLED
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+
+DHT HT(DHT11Pin,DHTType);
+float humi;
+float tempC;
+float tempF;
+
+float humi_Av;
+float tempC_Av;
+float tempF_Av;
+
+int  i = 0;
+
+//OLED define
+#define SCREEN_WIDTH 128 // OLED display width, in pixels
+#define SCREEN_HEIGHT 64 // OLED display height, in pixels
+// Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
+
+
+
+// RGB LED DIODA
+int red_light_pin= 11;
+int green_light_pin = 10;
+int blue_light_pin = 9;
+
+
+unsigned long starttime = 0;
+unsigned long endtime = 0;
+
+
+void setup() {
+  
+  Serial.begin(9600);
+  //For DHT11
+  HT.begin();
+  //For OLED I2C
+  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { // Address 0x3D for 128x64
+    Serial.println(F("SSD1306 allocation failed"));
+    for(;;);
+  }
+  display.clearDisplay();
+  display.setRotation(2);
+  
+  // RGB DIODA
+  
+  pinMode(red_light_pin, OUTPUT);
+  pinMode(green_light_pin, OUTPUT);
+  pinMode(blue_light_pin, OUTPUT);
+
+}
+
+
+void loop() {
+
+humi_Av = 0;
+tempC_Av = 0;
+tempF_Av = 0;
+
+i = 0;
+
+starttime = millis();
+endtime = starttime;
+
+while ((endtime - starttime) <=5000) // do this loop for up to 1000mS
+  {
+  humi = HT.readHumidity();
+  tempC = HT.readTemperature();
+  tempF = HT.readTemperature(true);
+
+  i += 1;
+
+  humi_Av += humi;
+  tempC_Av += tempC;
+  tempF_Av += tempF;
+  delay(100);
+
+  endtime = millis();
+}
+
+ 
+  humi_Av  /= i;
+  tempC_Av /= i;
+  tempF_Av /= i;
+
+
+
+ Serial.print("Vlaga:");
+ Serial.print(humi_Av,1);
+ Serial.print("%");
+ Serial.print(" Temperatura:");
+ Serial.print(tempC_Av,1);
+ Serial.print("C ~ ");
+ Serial.print(tempF_Av,1);
+ Serial.println("F");
+ Serial.print(i);
+
+
+
+  
+
+
+
+display.clearDisplay();
+oledDisplayHeader();
+
+
+display.display(); 
+
+if (tempC_Av >= 30){
+  analogWrite (red_light_pin,255);
+  analogWrite (blue_light_pin,0);
+  analogWrite (green_light_pin,0);
+ }
+if (tempC_Av <= 10){
+  analogWrite (blue_light_pin,255);
+  analogWrite (red_light_pin,0);
+  analogWrite (green_light_pin,0);
+ }
+if (tempC_Av >= 10 && tempC_Av <= 30){
+  analogWrite (green_light_pin,255);
+  analogWrite (blue_light_pin,0);
+  analogWrite (red_light_pin,0);
+
+
+ }
+
+
+
+
+}
+
+
+ 
+void oledDisplayHeader(){
+ display.setTextSize(2);
+ display.setTextColor(WHITE);
+ display.setCursor(42, 0);
+ display.print("Temp");
+ display.setCursor(15,35);
+ display.setTextSize(3);
+ display.print(String(tempC_Av)+String("C"));
+ 
+ 
+
+ 
+}
+void oledDisplay(int size, int x,int y, float value, String unit){
+ int charLen=12;
+ int xo=x+charLen*3.2;
+ int xunit=x+charLen*3.6;
+ int xval = x; 
+ display.setTextSize(size);
+ display.setTextColor(WHITE);
+ 
+ if (unit=="%"){
+   display.setCursor(x, y);
+   display.print(value,0);
+   display.print(unit);
+ } else {
+   if (value>99){
+    xval=x;
+   } else {
+    xval=x+charLen;
+   }
+   display.setCursor(xval, y);
+   display.print(value,0);
+   display.drawCircle(xo, y+2, 2, WHITE);  // print degree symbols (  )
+   display.setCursor(xunit, y);
+   display.print(unit);
+ }
+ 
+}
