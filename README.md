@@ -7,6 +7,6 @@ omogoca merjenje temperature in vlaznosti
 - Formatiranje kode
 - odtraniti odvecno kodo
 - paralelno procesiranje za OLED ekran
--centriranje texta
+- centriranje texta
 ```
 
