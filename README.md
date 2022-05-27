@@ -1,11 +1,4 @@
-# Vremenska postaja
-omogoca merjenje temperature in vlaznosti
+# PPC
+## parallel processing code
 
-**To do:**
-
-```
-- Formatiranje kode
-- odtraniti odvecno kodo
-- paralelno procesiranje za OLED ekran
-```
-
+Poskusna implantacija paralelnega procesiranje
