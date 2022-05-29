@@ -3,5 +3,5 @@
 
 Poskusna implantacija paralelnega procesiranje za OLED ekran
 
-Dodana funkicja za centriranje teksta/stevilke
-dodana startup icona
+- Dodana funkicja za centriranje teksta/stevilke
+- dodana startup icona
