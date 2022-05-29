@@ -14,7 +14,6 @@ int x = 0;
 #define DHTType DHT22
 
 
-
 //display define
 #define SCREEN_WIDTH 128 // Sirina
 #define SCREEN_HEIGHT 64 // Visina
@@ -98,11 +97,10 @@ void loop() {
     
     TempAndHumidity  data = dhtSensor.getTempAndHumidity();
 
- 
   
+
     humi = HT.readHumidity();
     tempC = HT.readTemperature();
-  
    
     i += 1;
 
@@ -121,7 +119,7 @@ void loop() {
   H = String(humi_Av);
   C = String(tempC_Av);
 
-  sprintf(Terminal,"vlaga: %s % Temperatura: %s C ",H,C);
+  sprintf(Terminal,"vlaga: %s %% Temperatura: %s C ",H,C);
   Serial.println(Terminal);
 
 
@@ -147,7 +145,7 @@ void DisplayCorecode( void * parameter ){ // isto kot void setup samo da deluje 
     while (true);
   }
 
-  //narise Icono na zagono
+  //narise Ilono na zagono
   display.clearDisplay();
   display.setRotation(2);
   display.drawBitmap(0, 0, WatherIcon, 128, 64, WHITE);
@@ -163,12 +161,15 @@ void DisplayCorecode( void * parameter ){ // isto kot void setup samo da deluje 
       display.clearDisplay();
       DisplayCenter(C, 2, "C", "C", 0 , -10);
       DisplayCenter("Temp", 2, "CT");
+      display.display();
 
 
       delay(2500);
       display.clearDisplay();
       DisplayCenter(H, 2, "C", "%", 0 , -10);
       DisplayCenter("Humidity", 2, "CT");
+      display.display();
+
       delay(2500);
 
      
@@ -197,17 +198,17 @@ void DisplayCenter(String text ,int size, String center, String Symbol, int x , 
   display.getTextBounds(text, 0, 0, &x1, &y1, &width, &height);
   display.getTextBounds(Symbol, 0, 0, &Sx1, &Sy1, &Swidth, &Sheight);
 
-
+  int xcalc = xcalc;
   
   if (Symbol == "C"){
     if (center == "C"){//Center
-      display.setCursor((SCREEN_WIDTH - width - Swidth-5) / 2 +  x , (SCREEN_HEIGHT -  height) / 2 -y);
+      display.setCursor((xcalc-5) / 2 +  x , (SCREEN_HEIGHT -  height) / 2 -y);
     }
     else if(center == "CT"){//Spodnji center
-      display.setCursor((SCREEN_WIDTH - width - Swidth-5) / 2 +  x, (SCREEN_HEIGHT - height) / 128 - y);
+      display.setCursor((xcalc-5) / 2 +  x, (SCREEN_HEIGHT - height) / 128 - y);
     }
     else if(center == "CB"){//zgornji senter
-      display.setCursor((SCREEN_WIDTH - width - Swidth-5) / 2 +  x, (SCREEN_HEIGHT - height) / 1 - y);
+      display.setCursor((xcalc-5) / 2 +  x, (SCREEN_HEIGHT - height) / 1 - y);
     }
 
 
@@ -224,13 +225,13 @@ void DisplayCenter(String text ,int size, String center, String Symbol, int x , 
     }
 
     if (center == "C"){//Center
-      display.setCursor((SCREEN_WIDTH - width - Swidth ) /2 +  x , (SCREEN_HEIGHT -  height) / 2 -y);
+      display.setCursor((xcalc) /2 +  x , (SCREEN_HEIGHT -  height) / 2 -y);
     }
     else if(center == "CT"){//Spodnji center
-      display.setCursor((SCREEN_WIDTH - width - Swidth ) /2 +  x, (SCREEN_HEIGHT - height) / 128 - y);
+      display.setCursor((xcalc) /2 +  x, (SCREEN_HEIGHT - height) / 128 - y);
     }
     else if(center == "CB"){//zgornji senter
-      display.setCursor((SCREEN_WIDTH - width - Swidth ) /2 +  x, (SCREEN_HEIGHT - height) / 1 - y);
+      display.setCursor((xcalc) /2 +  x, (SCREEN_HEIGHT - height) / 1 - y);
     }
 
     display.print(text);
@@ -238,7 +239,6 @@ void DisplayCenter(String text ,int size, String center, String Symbol, int x , 
   }  
 
   display.print(Symbol);
-  display.display();
 
 }
   
