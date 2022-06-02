@@ -1,5 +1,7 @@
 # Vremenska postaja
-omogoca merjenje temperature in vlaznosti
+-merjenje temp/humi
+-izpis na oled zaslon
+-paralelno procesiranje
 
 **To do:**
 
