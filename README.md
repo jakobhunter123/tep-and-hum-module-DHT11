@@ -11,4 +11,4 @@
 - ~~paralelno procesiranje za OLED ekran~~
 - ~~centriranje texta~~
 
-![The San Juan Mountains are beautiful!](blob/main/DHT/IMG_3445.jpg)
+![Ohišje]([blob/main/DHT/IMG_3445.jpg](https://github.com/jakobhunter123/tep-and-hum-module-DHT11/blob/main/DHT/IMG_3445.jpg))
