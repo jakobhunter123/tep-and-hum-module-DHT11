@@ -1,15 +1,6 @@
 # Vremenska postaja
--merjenje temp/humi
--izpis na oled zaslon
--paralelno procesiranje
+Naprava meri temperaturo in vlaznost. Uporablja DHT11 senzor in ESP32 mikrokontroler
 
-**To do:**
-
-
-- ~~Formatiranje kode~~
-- ~~odtraniti odvecno kodo~~
-- ~~paralelno procesiranje za OLED ekran~~
-- ~~centriranje texta~~
 
 ![Ohišje](https://github.com/jakobhunter123/tep-and-hum-module-DHT11/blob/main/DHT/IMG_3445.jpg)
 ![Icon](https://github.com/jakobhunter123/tep-and-hum-module-DHT11/blob/main/DHT/image_1.PNG)
