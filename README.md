@@ -2,6 +2,8 @@
 Naprava meri temperaturo in vlaznost s pomocjo DHT11 senzor in ESP32 mikrokontrolerja
 
 ## Kosovnica
+
+
 -ESP32
 -DHT11 senzor
 -OLED zaslon
