@@ -22,10 +22,10 @@ Naprava meri temperaturo in vlaznost s pomocjo DHT11 senzor in ESP32 mikrokontro
 
 ## Slike
 
-![Ohišje](https://github.com/jakobhunter123/tep-and-hum-module-DHT11/blob/main/DHT/IMG_3445.jpg)
-![Icon](https://github.com/jakobhunter123/tep-and-hum-module-DHT11/blob/main/DHT/image_1.PNG)
-![Temp](https://github.com/jakobhunter123/tep-and-hum-module-DHT11/blob/main/DHT/image_3.PNG)
-![Humi](https://github.com/jakobhunter123/tep-and-hum-module-DHT11/blob/main/DHT/image_2.PNG)
+![Ohišje](https://github.com/jakobhunter123/tep-and-hum-module-DHT11/blob/main/Slike/IMG_3445.jpg)
+![Icon](https://github.com/jakobhunter123/tep-and-hum-module-DHT11/blob/main/Slike/image_1.PNG)
+![Temp](https://github.com/jakobhunter123/tep-and-hum-module-DHT11/blob/main/Slike/image_3.PNG)
+![Humi](https://github.com/jakobhunter123/tep-and-hum-module-DHT11/blob/main/Slike/image_2.PNG)
 
 ## Komnetar
 
