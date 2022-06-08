@@ -1,7 +1,7 @@
 # Vremenska postaja
 Naprava meri temperaturo in vlaznost s pomocjo DHT11 senzor in ESP32 mikrokontrolerja
 
-## kosovnica
+## Kosovnica
 -ESP32
 -DHT11 senzor
 -OLED zaslon
