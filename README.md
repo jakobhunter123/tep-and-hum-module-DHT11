@@ -1,5 +1,15 @@
 # Vremenska postaja
-Naprava meri temperaturo in vlaznost. Uporablja DHT11 senzor in ESP32 mikrokontroler
+Naprava meri temperaturo in vlaznost s pomocjo DHT11 senzor in ESP32 mikrokontrolerja
+
+## kosovnica
+-ESP32
+-DHT11 senzor
+-OLED zaslon
+-Kabelcki
+-9v Baterija
+-3D natisnjeno ohisje, ki je iz plastike
+-3x LED 
+-Stikalo za vzig naprave
 
 
 ![Ohišje](https://github.com/jakobhunter123/tep-and-hum-module-DHT11/blob/main/DHT/IMG_3445.jpg)
