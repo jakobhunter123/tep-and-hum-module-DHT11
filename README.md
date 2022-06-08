@@ -4,14 +4,14 @@ Naprava meri temperaturo in vlaznost s pomocjo DHT11 senzor in ESP32 mikrokontro
 ## Kosovnica
 
 
--ESP32
--DHT11 senzor
--OLED zaslon
--Kabelcki
--9v Baterija
--3D natisnjeno ohisje, ki je iz plastike
--3x LED 
--Stikalo za vzig naprave
+- ESP32
+- DHT11 senzor
+- OLED zaslon
+- Kabelcki
+- 9v Baterija
+- 3D natisnjeno ohisje, ki je iz plastike
+- 3x LED 
+- Stikalo za vzig naprave
 
 ![Ohišje](https://github.com/jakobhunter123/tep-and-hum-module-DHT11/blob/main/DHT/IMG_3445.jpg)
 ![Icon](https://github.com/jakobhunter123/tep-and-hum-module-DHT11/blob/main/DHT/image_1.PNG)
